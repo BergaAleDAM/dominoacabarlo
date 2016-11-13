@@ -20,8 +20,10 @@ public class VistaText {
         System.out.println("Turno: " + turno + "El jugador es :" + jugador);
     }
 
-    public void mostarTablero(ArrayDeque<Fitxa> tablero) {
-
+    
+        public void mostrarTablero(ArrayDeque<Fitxa> tablero) {
+      
+        
         StringBuilder sb = new StringBuilder();
         for (Fitxa f : tablero) {
             sb.append(" - ");
@@ -61,26 +63,43 @@ public class VistaText {
     }
 
     public int pedirFicha(List<Fitxa> fichitas) {
+        int posicion = 0;
 
         do {
             System.out.println("Posa la posicio de la fitxa que vols col·locar.");
+            
+            posicion = lector.nextInt();
 
-        } while (validarNumeroFicha(fichitas.size(), lector.nextInt()));
+        } while (validarNumeroFicha(fichitas.size(), posicion));
 
-        return 1;
+        return posicion;
     }
 
     public void colocarDosDobles(List<Fitxa> fichitas) {
         
-    do{    
-        boolean doble1 = lector.hasNextInt();
-        boolean doble2 = lector.hasNextInt();
-    }while(doble1 && doble2);
-     
+//    do{    
+//        boolean doble1 = lector.hasNextInt();
+//        boolean doble2 = lector.hasNextInt();
+//    }while(doble1 && doble2);
+//     
     }
 
-    public void escogerExtremo() {
+    public void escogerExtremo(Fitxa fichita, ArrayDeque<Fitxa> tablero) {
+       
+        mostrarTablero(tablero);
+        
+        System.out.println("Escolleix a quin lloc va la fitxa :\n"
+                + "1.Esquerra"
+                + "2.Dreta");
+        int opcion = lector.nextInt();
+        
+        switch(opcion){
+            case 1: 
+                
+        }
+        
 
+        
     }
 
     private boolean validarNumeroFicha(int tamanio, int opcion) {
@@ -98,5 +117,8 @@ public class VistaText {
         }else{
         return true;}
     }
+
+
+
     
 }
